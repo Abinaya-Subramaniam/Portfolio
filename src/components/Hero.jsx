@@ -9,7 +9,7 @@ const Hero = () => {
   const [typingSpeed, setTypingSpeed] = useState(150);
   const [animationComplete, setAnimationComplete] = useState(false);
 
-  const roles = ['Artificial Intelligence Undergraduate', 'Data Science Enthusiast'];
+  const roles = ['AI Undergraduate', 'Data Science Enthusiast'];
 
   useEffect(() => {
     if (animationComplete) return;
