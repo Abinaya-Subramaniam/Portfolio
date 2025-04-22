@@ -19,42 +19,85 @@ const blogData = {
 };
 
 const BlogLinks = () => {
-  const [hoveredMedium, setHoveredMedium] = useState(false);
-  const [hoveredInkwel, setHoveredInkwel] = useState(false);
+  const [activeCard, setActiveCard] = useState(null);
 
   return (
-    <section id="blog" className="blog-section">
+    <section id="blog" style={{
+      padding: '4rem 2rem',
+      background: 'linear-gradient(to bottom, #e3f2fd 0%, #bbdefb 100%)'
+    }}>
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
-        className="blog-content"
+        style={{
+          maxWidth: '1200px',
+          margin: '0 auto'
+        }}
       >
-        <h2 className="section-title">Blog</h2>
+        <h2 style={{
+          fontSize: '2.5rem',
+          color: '#0d47a1',
+          marginBottom: '2rem',
+          textAlign: 'center'
+        }}>Blog</h2>
         
-        <div className="blog-cards-container">
-          {/* Medium Card - Now using separate state */}
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: '1fr',
+          gap: '2rem',
+          '@media (min-width: 768px)': {
+            gridTemplateColumns: '1fr 1fr'
+          }
+        }}>
+          {/* Medium Card */}
           <motion.div 
-            className="blog-card"
+            style={{
+              background: 'white',
+              borderRadius: '12px',
+              padding: '1.5rem',
+              boxShadow: '0 10px 20px rgba(30, 136, 229, 0.1)',
+              transition: 'all 0.3s ease'
+            }}
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
-            onHoverStart={() => setHoveredMedium(true)}
-            onHoverEnd={() => setHoveredMedium(false)}
+            onMouseEnter={() => setActiveCard('medium')}
+            onMouseLeave={() => setActiveCard(null)}
           >
-            <div className="card-header">
-              <div className="blog-logo medium-logo">
-                <svg viewBox="0 0 24 24" fill="currentColor">
+            <div style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '1rem',
+              marginBottom: '1.5rem'
+            }}>
+              <div style={{
+                width: '50px',
+                height: '50px',
+                borderRadius: '50%',
+                background: '#1e88e5',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                color: 'white'
+              }}>
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
                   <path d="M22 12l-6.5 9.5h-3.25l5.5-8.5-5.5-8.5h3.25l6.5 9.5zm-10.5-9.5h-3.25l-6.5 9.5 6.5 9.5h3.25l-5.5-8.5 5.5-8.5zm-6.5 0h-3.25l6.5 9.5-6.5 9.5h3.25l5.5-8.5-5.5-8.5z"/>
                 </svg>
               </div>
-              <h3>Medium Articles</h3>
+              <h3 style={{
+                fontSize: '1.5rem',
+                color: '#0d47a1',
+                margin: 0
+              }}>Medium Articles</h3>
             </div>
             
-            {hoveredMedium && (
+            {(activeCard === 'medium') && (
               <motion.div 
-                className="blog-links-dropdown"
+                style={{
+                  overflow: 'hidden'
+                }}
                 initial={{ opacity: 0, height: 0 }}
                 animate={{ opacity: 1, height: 'auto' }}
                 exit={{ opacity: 0, height: 0 }}
@@ -66,7 +109,18 @@ const BlogLinks = () => {
                     href={blog.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="blog-post-link"
+                    style={{
+                      display: 'block',
+                      padding: '0.8rem 0',
+                      color: '#424242',
+                      textDecoration: 'none',
+                      borderBottom: '1px solid #e0e0e0',
+                      transition: 'all 0.2s ease',
+                      ':hover': {
+                        color: '#1e88e5',
+                        paddingLeft: '0.5rem'
+                      }
+                    }}
                   >
                     {blog.title}
                   </a>
@@ -78,36 +132,72 @@ const BlogLinks = () => {
               href="https://medium.com/@abi12subramaniam"
               target="_blank"
               rel="noopener noreferrer"
-              className="card-view-all"
+              style={{
+                display: 'inline-block',
+                marginTop: '1.5rem',
+                color: '#1e88e5',
+                fontWeight: '600',
+                textDecoration: 'none',
+                transition: 'all 0.2s ease',
+                ':hover': {
+                  color: '#0d47a1'
+                }
+              }}
             >
               View All on Medium
             </a>
           </motion.div>
           
-          {/* Inkwell Chronicles Card - Now using separate state */}
+          {/* Inkwell Chronicles Card */}
           <motion.div 
-            className="blog-card"
+            style={{
+              background: 'white',
+              borderRadius: '12px',
+              padding: '1.5rem',
+              boxShadow: '0 10px 20px rgba(30, 136, 229, 0.1)',
+              transition: 'all 0.3s ease'
+            }}
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            onHoverStart={() => setHoveredInkwel(true)}
-            onHoverEnd={() => setHoveredInkwel(false)}
+            onMouseEnter={() => setActiveCard('inkwel')}
+            onMouseLeave={() => setActiveCard(null)}
           >
-            <div className="card-header">
-              <div className="blog-logo inkwel-logo">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <div style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '1rem',
+              marginBottom: '1.5rem'
+            }}>
+              <div style={{
+                width: '50px',
+                height: '50px',
+                borderRadius: '50%',
+                background: '#1e88e5',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                color: 'white'
+              }}>
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M12 19l7-7 3 3-7 7-3-3z"/>
                   <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/>
                   <path d="M2 2l7.586 7.586"/>
                   <circle cx="11" cy="11" r="2"/>
                 </svg>
               </div>
-              <h3>Inkwell Chronicles</h3>
+              <h3 style={{
+                fontSize: '1.5rem',
+                color: '#0d47a1',
+                margin: 0
+              }}>Inkwell Chronicles</h3>
             </div>
             
-            {hoveredInkwel && (
+            {(activeCard === 'inkwel') && (
               <motion.div 
-                className="blog-links-dropdown"
+                style={{
+                  overflow: 'hidden'
+                }}
                 initial={{ opacity: 0, height: 0 }}
                 animate={{ opacity: 1, height: 'auto' }}
                 exit={{ opacity: 0, height: 0 }}
@@ -119,7 +209,18 @@ const BlogLinks = () => {
                     href={blog.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="blog-post-link"
+                    style={{
+                      display: 'block',
+                      padding: '0.8rem 0',
+                      color: '#424242',
+                      textDecoration: 'none',
+                      borderBottom: '1px solid #e0e0e0',
+                      transition: 'all 0.2s ease',
+                      ':hover': {
+                        color: '#1e88e5',
+                        paddingLeft: '0.5rem'
+                      }
+                    }}
                   >
                     {blog.title}
                   </a>
@@ -131,7 +232,17 @@ const BlogLinks = () => {
               href="https://inkwellchronicles360.wordpress.com/"
               target="_blank"
               rel="noopener noreferrer"
-              className="card-view-all"
+              style={{
+                display: 'inline-block',
+                marginTop: '1.5rem',
+                color: '#1e88e5',
+                fontWeight: '600',
+                textDecoration: 'none',
+                transition: 'all 0.2s ease',
+                ':hover': {
+                  color: '#0d47a1'
+                }
+              }}
             >
               View All on Inkwell Chronicles
             </a>
