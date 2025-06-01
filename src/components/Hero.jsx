@@ -21,7 +21,6 @@ const Hero = () => {
 
   const roles = ['AI Undergraduate', 'Data Science Enthusiast', 'Machine Learning Explorer'];
 
-  // Typing animation effect
   useEffect(() => {
     const handleType = () => {
       const currentRole = roles[loopNum % roles.length];
@@ -46,7 +45,6 @@ const Hero = () => {
     return () => clearTimeout(timer);
   }, [text, isDeleting, loopNum, typingSpeed]);
 
-  // Auto-scroll to bottom of chat
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages]);
@@ -55,14 +53,12 @@ const Hero = () => {
     e.preventDefault();
     if (!inputMessage.trim()) return;
 
-    // Add user message to chat
     const userMessage = { text: inputMessage, sender: 'user' };
     setMessages(prev => [...prev, userMessage]);
     setInputMessage('');
     setIsLoading(true);
 
     try {
-      // Call your FastAPI backend
       const response = await fetch('http://localhost:8000/ask', {
         method: 'POST',
         headers: {
@@ -98,7 +94,6 @@ const Hero = () => {
         position: 'relative'
       }}
     >
-      {/* Chatbot toggle button */}
       <motion.button
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}
@@ -126,7 +121,6 @@ const Hero = () => {
         </svg>
       </motion.button>
 
-      {/* Chatbot UI */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ 
@@ -365,7 +359,7 @@ const Hero = () => {
             <motion.a
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              href="https://drive.google.com/file/d/1MBEKjf3_LKFhLcWNGwBbNfO30M9vbadU/view?usp=sharing" 
+              href="https://drive.google.com/file/d/1bG8Pl10P523vJfyIEYm1kIrb6Y1j7A1I/view?usp=sharing" 
               target='_blank'
               rel='noopener noreferrer'
               style={{

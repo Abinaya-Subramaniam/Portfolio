@@ -5,14 +5,14 @@ import { FiGithub, FiExternalLink } from 'react-icons/fi';
 const projectsData = [
   {
     id: 1,
-    title: "Heart Disease Prediction",
-    description: "A machine learning model to predict heart disease using various health metrics with 87% accuracy.",
-    tags: ["Python", "Scikit-learn", "Pandas"],
-    link: "https://github.com/Abinaya-Subramaniam/Heart-Disease-Prediction",
-    image: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+    title: "NeuroSync",
+    description: "AI Platform designed to assist Sri Lankan children with Autism Spectrum Disorder",
+    tags: ["Python", "FastAPI", "Computer Vision","Deep Learning"],
+    link: "https://github.com/Abinaya-Subramaniam/neurosync_WBC",
+    image: "https://i.imgur.com/kIkXyRB.png"
   },
   {
-    id: 2,
+    id: 3,
     title: "IPL StatZone",
     description: "Interactive dashboard to explore IPL data (2008-2024) with player/team comparisons and visualizations.",
     tags: ["Python", "Streamlit", "Pandas"],
@@ -20,20 +20,20 @@ const projectsData = [
     image: "https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
   },
   {
-    id: 3,
-    title: "Currency Converter",
+    id: 2,
+    title: "Insurance Agents Performance Predictor",
     description: "Web app converting currencies using real-time exchange rates with clean interface.",
-    tags: ["React", "CSS", "API Integration"],
-    link: "https://mycurrencyconverter123.netlify.app/",
-    image: "https://images.unsplash.com/photo-1580519542036-c47de6196ba5?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+    tags: ["Machine Learning", "Python", "Streamlit"],
+    link: "https://github.com/Abinaya-Subramaniam/insurance_agents_performance_predictor",
+    image: "https://i.imgur.com/weXQbxk.jpeg"
   },
   {
     id: 4,
-    title: "Movie Sentiment Analysis",
-    description: "NLP model analyzing movie review sentiments with Flask backend deployment.",
-    tags: ["Python", "NLTK", "Flask"],
-    link: "https://github.com/Abinaya-Subramaniam/Movie-Review-Analysis",
-    image: "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+    title: "ZenPlateX (Ongoing)",
+    description: "AI Platform platform designed to provide personalized accessible nutrition support",
+    tags: ["Python", "Machine Learning", "Computer Vision", "NLP"],
+    link: "#",
+    image: "https://i.imgur.com/TlNnDDN.jpeg"
   }
 ];
 

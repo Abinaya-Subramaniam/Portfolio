@@ -9,6 +9,8 @@ import Projects from './components/Projects';
 import BlogLinks from './components/BlogLinks';
 import Contact from './components/Contact';
 import './assets/styles/global.css';
+import Education from './components/Education';
+import Extracurricular from './components/Extracurricular';
 
 const App = () => {
   const [ref, inView] = useInView({
@@ -21,10 +23,12 @@ const App = () => {
       <Sidebar />
       <main className="main-content">
         <Hero />
+        <Education />
         <About />
         <Skills />
         <Projects />
         <BlogLinks />
+        <Extracurricular />
         <Contact />
       </main>
     </div>
