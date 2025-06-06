@@ -37,7 +37,7 @@ const Education = ({ darkMode }) => {
     <section 
       id="education" 
       style={{
-        padding: 'clamp(3rem, 6vw, 4rem) clamp(1rem, 4vw, 2rem)',
+        padding: '4rem 1rem', // Reduced side padding for mobile
         background: darkMode 
           ? 'linear-gradient(to bottom, #1a1a1a 0%, #2d2d2d 100%)' 
           : 'linear-gradient(to bottom, #f8f9fa 0%, #e9ecef 100%)',
@@ -48,8 +48,8 @@ const Education = ({ darkMode }) => {
         maxWidth: '1200px',
         margin: '0 auto',
         position: 'relative',
-        width: '100%',
-        padding: '0 clamp(15px, 3vw, 30px)'
+        width: '100%', // Ensure full width on mobile
+        padding: '0 15px' // Add padding to prevent content from touching edges
       }}>
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
@@ -57,15 +57,16 @@ const Education = ({ darkMode }) => {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
           style={{
-            fontSize: 'clamp(1.8rem, 5vw, 2.5rem)',
-            marginBottom: 'clamp(1.5rem, 4vw, 2rem)',
+            fontSize: 'clamp(1.8rem, 5vw, 2.5rem)', // Responsive font size
+            marginBottom: '2rem',
             textAlign: 'center',
             background: darkMode 
               ? 'linear-gradient(90deg, #4e54c8, #8f94fb)' 
               : 'linear-gradient(90deg, #3498db, #2980b9)',
             WebkitBackgroundClip: 'text',
             backgroundClip: 'text',
-            color: 'transparent'
+            color: 'transparent',
+            padding: '0 10px' // Add padding for smaller screens
           }}
         >
           Education Timeline
@@ -78,7 +79,7 @@ const Education = ({ darkMode }) => {
             content: '""',
             position: 'absolute',
             top: 0,
-            left: '31px',
+            left: '31px', // Consistent timeline position for all screen sizes
             width: '4px',
             height: '100%',
             background: darkMode ? '#444' : '#ddd',
@@ -88,22 +89,22 @@ const Education = ({ darkMode }) => {
           {educationData.map((item, index) => (
             <motion.div
               key={item.id}
-              initial={{ opacity: 0, x: -50 }}
+              initial={{ opacity: 0, x: -50 }} // Consistent animation direction
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
               style={{
                 position: 'relative',
-                marginBottom: 'clamp(1.5rem, 4vw, 2rem)',
+                marginBottom: '2rem',
                 display: 'flex',
-                justifyContent: 'flex-start',
+                justifyContent: 'flex-start', // Consistent layout for all screen sizes
                 width: '100%'
               }}
             >
               <div style={{
-                width: 'calc(100% - clamp(40px, 8vw, 60px))',
-                marginLeft: 'clamp(40px, 8vw, 60px)',
-                padding: 'clamp(1rem, 3vw, 1.2rem)',
+                width: 'calc(100% - 60px)', // Adjusted width for better mobile display
+                marginLeft: '60px', // Space for timeline and icon
+                padding: '1.2rem',
                 background: darkMode ? '#2d2d2d' : 'white',
                 borderRadius: '12px',
                 boxShadow: '0 3px 10px rgba(0, 0, 0, 0.1)',
@@ -112,37 +113,37 @@ const Education = ({ darkMode }) => {
                 <div style={{
                   position: 'absolute',
                   top: '20px',
-                  left: 'clamp(-35px, -7vw, -40px)',
-                  width: 'clamp(35px, 7vw, 40px)',
-                  height: 'clamp(35px, 7vw, 40px)',
+                  left: '-40px',
+                  width: '40px', // Slightly smaller icons on mobile
+                  height: '40px',
                   borderRadius: '50%',
                   background: item.iconBg,
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
                   color: 'white',
-                  fontSize: 'clamp(0.9rem, 2.5vw, 1rem)',
-                  boxShadow: `0 0 0 4px ${darkMode ? '#2d2d2d' : 'white'}`,
+                  fontSize: '1rem',
+                  boxShadow: '0 0 0 4px ' + (darkMode ? '#2d2d2d' : 'white'),
                   zIndex: 1
                 }}>
                   {item.icon}
                 </div>
                 <h3 style={{
-                  fontSize: 'clamp(1.1rem, 3.5vw, 1.3rem)',
+                  fontSize: 'clamp(1.1rem, 4vw, 1.3rem)', // Responsive font size
                   marginBottom: '0.5rem',
                   color: darkMode ? '#fff' : '#2c3e50',
-                  wordBreak: 'break-word'
+                  wordBreak: 'break-word' // Prevent text overflow on small screens
                 }}>
                   {item.title}
                 </h3>
                 <div style={{
                   display: 'flex',
-                  flexWrap: 'wrap',
+                  flexWrap: 'wrap', // Allow wrapping on small screens
                   alignItems: 'center',
                   gap: '0.5rem',
                   marginBottom: '0.5rem',
                   color: darkMode ? '#bbb' : '#7f8c8d',
-                  fontSize: 'clamp(0.85rem, 2.5vw, 0.9rem)'
+                  fontSize: 'clamp(0.9rem, 3vw, 1rem)' // Responsive font size
                 }}>
                   <span>{item.institution}</span>
                   <span>•</span>
@@ -151,7 +152,7 @@ const Education = ({ darkMode }) => {
                 <p style={{
                   color: darkMode ? '#ccc' : '#34495e',
                   lineHeight: '1.6',
-                  fontSize: 'clamp(0.85rem, 2.5vw, 0.9rem)',
+                  fontSize: 'clamp(0.9rem, 3vw, 1rem)', // Responsive font size
                   marginTop: '0.5rem'
                 }}>
                   {item.description}
